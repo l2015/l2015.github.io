@@ -3,10 +3,29 @@
     <title>Ly‘s Notes</title>
     <link href="https://l2015.github.io/feed.xml" rel="self" />
     <link href="https://l2015.github.io" />
-    <updated>1970-01-01T08:00:00+08:00</updated>
+    <updated>2023-02-19T23:21:21+08:00</updated>
     <author>
         <name>Ly</name>
     </author>
     <id>https://l2015.github.io</id>
 
+    <entry>
+        <title>Hello World！</title>
+        <author>
+            <name>Ly</name>
+        </author>
+        <link href="https://l2015.github.io/hello-world.html"/>
+        <id>https://l2015.github.io/hello-world.html</id>
+
+        <updated>2023-02-19T23:21:21+08:00</updated>
+            <summary></summary>
+        <content type="html">
+            <![CDATA[
+                
+  <p>
+    
+  </p>
+            ]]>
+        </content>
+    </entry>
 </feed>
