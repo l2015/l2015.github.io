@@ -145,6 +145,42 @@
             background-color: #d85d85;
         }
 
+        #Tools {
+            display: none;
+            position: absolute;
+            align-items: center;
+            justify-content: center;
+            top: 20vh;
+            left: 0;
+            right: 0;
+            animation: slideIn 0.5s ease-in-out;
+        }
+
+        #Tools h2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .tools-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .tools-list li {
+            margin-bottom: 10px;
+        }
+
+        .tools-list li a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        .tools-list li a:hover {
+            color: #000;
+            text-decoration: underline;
+        }
+
         #Contact {
             text-align: center;
             animation: slideIn 0.5s ease-in-out;
@@ -199,6 +235,15 @@
         .submit-button:hover {
             background-color: #d85d85;
         }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -209,7 +254,7 @@
             <h1 id="title">Ly's Pages</h1>
             <ul class="nav">
                 <li><a href="#" onclick="showActivity()">Activity</a></li>
-                <li><a href="https://wwvs.lanzoub.com/b02e9bobc">Tools</a></li>
+                <li><a href="#" onclick="showTools()">Tools</a></li>
                 <li><a href="https://github.com/l2015">GitHub</a></li>
                 <li><a href="#" onclick="showContact()">Contact</a></li>
             </ul>
@@ -254,6 +299,29 @@
             </a>
         </div>
     </div>
+    <div id="Tools">
+        <h2>Tools</h2>
+        <ul class="tools-list">
+            <li>
+                <a href="https://code.visualstudio.com/" target="_blank">VSCode</a>
+            </li>
+            <li>
+                <a href="https://www.fritz.ai/chess-benchmark/" target="_blank">Fritz Chess Benchmark</a>
+            </li>
+            <li>
+                <a href="https://www.cpuid.com/softwares/cpu-z.html" target="_blank">CPU-Z</a>
+            </li>
+            <li>
+                <a href="https://www.aida64.com/" target="_blank">AIDA64</a>
+            </li>
+            <li>
+                <a href="https://www.msi.com/page/afterburner" target="_blank">MSI Afterburner</a>
+            </li>
+            <li>
+                <a href="https://wwvs.lanzoub.com/b02e9bobc" target="_blank">Other</a>
+            </li>
+        </ul>
+    </div>
     <div id="Contact" style="display:none; position: absolute; top: 20vh;left: 0; right: 0;">
         <h2>Contact</h2>
         <form id="contactForm" action="#">
@@ -275,101 +343,82 @@
         </form>
     </div>
 
+    <footer>
+        <p style="font-size: 12px; color: gray; margin: 0;">&copy; 2023 Ly's Pages. All rights reserved.</p>
+    </footer>
 
 
 
     <script>
+        var Contact = document.getElementById('Contact');
+        var Activity = document.getElementById('Activity');
+        var Tools = document.getElementById('Tools');
+        var nav = document.querySelector('.nav');
+        var title = document.getElementById('title');
         function showActivity() {
-            // Hide Contact section
-            var Contact = document.getElementById('Contact');
-            Contact.style.display = 'none';
-            // Animate the navigation bar
-            var nav = document.querySelector('.nav');
-            nav.style.transform = 'translateY(-47vh)';
-            // Hide the title
-            var title = document.getElementById('title');
-            title.style.opacity = '0';
-            // Show the Activity content
-            var Activity = document.getElementById('Activity');
-            Activity.style.display = 'grid';
-            var backButton = document.getElementById('backButton');
-            backButton.style.display = 'block';
+            showContent('Activity');
+        }
+        function showTools() {
+            showContent('Tools');
         }
 
         function showContact() {
-            // Hide Activity section
-            var Activity = document.getElementById('Activity');
-            Activity.style.display = 'none';
-
-            // Animate the navigation bar
-            var nav = document.querySelector('.nav');
-            nav.style.transform = 'translateY(-47vh)';
-            // Hide the title
-            var title = document.getElementById('title');
-            title.style.opacity = '0';
-            // Show the Contact content
-            var Contact = document.getElementById('Contact');
-            Contact.style.display = 'block';
-            var backButton = document.getElementById('backButton');
-            backButton.style.display = 'block';
+            showContent('Contact');
         }
-
-
         function resetLayout() {
-            // Reset Activity section
-            var Activity = document.getElementById('Activity');
             Activity.style.display = 'none';
-
-            // Reset Contact section
-            var Contact = document.getElementById('Contact');
             Contact.style.display = 'none';
-
-            // Reset navigation bar and title
-            var nav = document.querySelector('.nav');
             nav.style.transform = 'none';
-            var title = document.getElementById('title');
             title.style.opacity = '1';
-
-            // Clear navigation bar hover styles
             var navItems = document.querySelectorAll('.nav li');
             for (var i = 0; i < navItems.length; i++) {
                 navItems[i].style = null;
             }
-
-            // Show back button
             var backButton = document.getElementById('backButton');
             backButton.style.display = 'none';
         }
 
+        function showContent(contentId) {
+            Contact.style.display = 'none';
+            Activity.style.display = 'none';
+            Tools.style.display = 'none';
+            nav.style.transform = 'translateY(-47vh)';
+            title.style.opacity = '0';
+
+            // Show the content
+            var content = document.getElementById(contentId);
+            content.style.display = 'grid';
+
+            // Show back button
+            var backButton = document.getElementById('backButton');
+            backButton.style.display = 'block';
+        }
 
         //post data
         document.getElementById('contactForm').addEventListener('submit', function (event) {
-            event.preventDefault(); // Prevent form submission
+            event.preventDefault(); // 阻止表单提交
 
-            // Get form data
+            // 获取表单数据
             var name = document.getElementById('name').value;
             var email = document.getElementById('email').value;
             var message = document.getElementById('message').value;
 
-            // Send notification using Bark API
-            var url = 'https://api.day.app/YOUR_BARK_API_KEY/Contact%20Form';
-            var notification = name + ' has sent a message:\n\n' + message + '\n\nContact email: ' + email;
+            // 构建Bark API的URL，将表单信息作为推送内容传递
+            var url = 'https://api.day.app//表单提交通知/' + name + ' has sent a message:\n\n' + message + '\n\nContact email: ' + email;
 
-            fetch(url, {
-                method: 'POST',
-                body: JSON.stringify({ body: notification }),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            }).then(function (response) {
-                // Handle response
-                console.log('Notification sent');
-                // Reset form
-                document.getElementById('contactForm').reset();
-            }).catch(function (error) {
-                console.error('Error sending notification:', error);
-            });
+            // 发送推送请求
+            fetch(url)
+                .then(function (response) {
+                    // 处理响应
+                    console.log('Notification sent');
+                    // 重置表单
+                    document.getElementById('contactForm').reset();
+                })
+                .catch(function (error) {
+                    console.error('Error sending notification:', error);
+                });
         });
+
 
 
     </script>
