@@ -1,427 +1,467 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="images/icon.png" type="image/x-icon" />
     <title>Ly's Pages</title>
     <style>
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
         }
 
-        body {
-            background-color: #f1f1f1;
-            margin: 0;
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
+      }
 
-        .container {
-            width: 100%;
-            height: 100vh;
-            display: table;
-            vertical-align: middle;
-            /* border: 1px solid #000000; */
-        }
+      body {
+        background-color: #f1f1f1;
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      }
 
-        .main {
-            display: table-cell;
-            vertical-align: middle;
-            text-align: center;
-            margin: 0 auto;
-        }
+      .container {
+        width: 100%;
+        height: 100vh;
+        display: table;
+        vertical-align: middle;
+        /* border: 1px solid #000000; */
+      }
 
-        .nav {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0 auto 20px auto;
-            background-color: #f5dde5;
-            border-radius: 20px;
-            padding: 5px 10px;
-            height: 2em;
-            width: 300px;
-            transition: transform 0.5s ease-in-out;
-        }
+      .main {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        margin: 0 auto;
+      }
 
-        .nav li {
-            list-style: none;
-            margin: 0;
-            position: relative;
-            width: 33.33%;
-        }
+      .nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto 20px auto;
+        background-color: #f5dde5;
+        border-radius: 20px;
+        padding: 5px 10px;
+        height: 2em;
+        width: 300px;
+        transition: transform 0.5s ease-in-out;
+      }
 
-        .nav li a {
-            text-decoration: none;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            font-size: medium;
-            color: gray;
-            position: relative;
-            transition: all 0.5s ease-in-out;
-            border-radius: 20px;
-            width: 100%;
-            display: block;
-            height: 2em;
-            line-height: 2em;
-        }
+      .nav li {
+        list-style: none;
+        margin: 0;
+        position: relative;
+        width: 33.33%;
+      }
 
-        .nav li:hover {
-            color: #fff;
-            background-color: #f48fb1;
-            border-radius: 10px;
-            height: 1.5em;
-            width: 33.33%;
-            position: relative;
-        }
+      .nav li a {
+        text-decoration: none;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+        font-size: medium;
+        color: gray;
+        position: relative;
+        transition: all 0.5s ease-in-out;
+        border-radius: 20px;
+        width: 100%;
+        display: block;
+        height: 2em;
+        line-height: 2em;
+      }
 
-        .nav li:hover::before {
-            content: "";
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            width: calc(100% + 20px);
-            height: calc(100% + 20px);
-            background: rgba(255, 255, 255, 0.2);
-            z-index: -1;
-            filter: blur(10px);
-            border-radius: 30px;
-        }
+      .nav li:hover {
+        color: #fff;
+        background-color: #f48fb1;
+        border-radius: 10px;
+        height: 1.5em;
+        width: 33.33%;
+        position: relative;
+      }
 
-        .nav li:hover a {
-            color: #fff;
-        }
+      .nav li:hover::before {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        width: calc(100% + 20px);
+        height: calc(100% + 20px);
+        background: rgba(255, 255, 255, 0.2);
+        z-index: -1;
+        filter: blur(10px);
+        border-radius: 30px;
+      }
 
-        #title {
-            transition: opacity 0.5s ease-in-out;
-        }
+      .nav li:hover a {
+        color: #fff;
+      }
 
-        #Activity {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            grid-gap: 20px;
-            max-width: 80vw;
-            margin: 0 auto;
-            justify-content: center;
-            align-content: center;
-            animation: slideIn 0.5s ease-in-out;
-        }
+      #title {
+        transition: opacity 0.5s ease-in-out;
+      }
 
-        .item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+      #Activity {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-gap: 20px;
+        max-width: 80vw;
+        margin: 0 auto;
+        justify-content: center;
+        align-content: center;
+        animation: slideIn 0.5s ease-in-out;
+      }
 
+      .item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
 
+      .item {
+        width: 100%;
+      }
 
-        .item {
-            width: 100%;
-        }
+      #backButton {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        display: none;
+        padding: 5px 10px;
+        background-color: #f48fb1;
+        border-radius: 4px;
+        font-size: 14px;
+        color: #fff;
+        cursor: pointer;
+        border: none;
+      }
 
-        #backButton {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            display: none;
-            padding: 5px 10px;
-            background-color: #f48fb1;
-            border-radius: 4px;
-            font-size: 14px;
-            color: #fff;
-            cursor: pointer;
-            border: none;
-        }
+      #backButton:hover {
+        background-color: #d85d85;
+      }
 
-        #backButton:hover {
-            background-color: #d85d85;
-        }
+      #Tools {
+        display: none;
+        position: absolute;
+        align-items: center;
+        justify-content: center;
+        top: 20vh;
+        left: 0;
+        right: 0;
+        animation: slideIn 0.5s ease-in-out;
+      }
 
-        #Tools {
-            display: none;
-            position: absolute;
-            align-items: center;
-            justify-content: center;
-            top: 20vh;
-            left: 0;
-            right: 0;
-            animation: slideIn 0.5s ease-in-out;
-        }
+      #Tools h2 {
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+      }
 
-        #Tools h2 {
-            font-size: 24px;
-            font-weight: bold;
-            color: #333;
-        }
+      .tools-list {
+        list-style-type: none;
+        padding: 0;
+      }
 
-        .tools-list {
-            list-style-type: none;
-            padding: 0;
-        }
+      .tools-list li {
+        margin-bottom: 10px;
+      }
 
-        .tools-list li {
-            margin-bottom: 10px;
-        }
+      .tools-list li a {
+        color: #666;
+        text-decoration: none;
+      }
 
-        .tools-list li a {
-            color: #666;
-            text-decoration: none;
-        }
+      .tools-list li a:hover {
+        color: #000;
+        text-decoration: underline;
+      }
 
-        .tools-list li a:hover {
-            color: #000;
-            text-decoration: underline;
-        }
+      #Contact {
+        text-align: center;
+        animation: slideIn 0.5s ease-in-out;
+      }
 
-        #Contact {
-            text-align: center;
-            animation: slideIn 0.5s ease-in-out;
-        }
+      #Contact h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
 
-        #Contact h2 {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
+      .form-group {
+        margin-bottom: 20px;
+      }
 
-        .form-group {
-            margin-bottom: 20px;
-        }
+      .form-group label {
+        display: block;
+        font-size: 14px;
+        margin-bottom: 5px;
+        color: #333;
+        font-weight: bold;
+      }
 
-        .form-group label {
-            display: block;
-            font-size: 14px;
-            margin-bottom: 5px;
-            color: #333;
-            font-weight: bold;
-        }
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        max-width: 300px;
+        /* 调整输入框的最大宽度 */
+        padding: 8px;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        transition: border-color 0.3s ease-in-out;
+      }
 
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            max-width: 300px;
-            /* 调整输入框的最大宽度 */
-            padding: 8px;
-            font-size: 14px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            transition: border-color 0.3s ease-in-out;
-        }
+      .form-group input:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: #f48fb1;
+      }
 
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #f48fb1;
-        }
+      .submit-button {
+        padding: 10px 20px;
+        font-size: 14px;
+        background-color: #f48fb1;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+      }
 
-        .submit-button {
-            padding: 10px 20px;
-            font-size: 14px;
-            background-color: #f48fb1;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease-in-out;
-        }
+      .submit-button:hover {
+        background-color: #d85d85;
+      }
 
-        .submit-button:hover {
-            background-color: #d85d85;
-        }
+      footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 10px;
+        text-align: center;
+      }
 
-        footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 10px;
-            text-align: center;
-        }
+      .success-message {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #f48fb1;
+        color: #a95974;
+        padding: 10px 20px;
+        border-radius: 4px;
+        font-size: 16px;
+        display: none;
+        animation: slideIn 0.5s ease-in-out;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <button id="backButton" style="float: left;" onclick="resetLayout()">⬅</button>
-        <div class="main">
-            <h1 id="title">Ly's Pages</h1>
-            <ul class="nav">
-                <li><a href="#" onclick="showActivity()">Activity</a></li>
-                <li><a href="#" onclick="showTools()">Tools</a></li>
-                <li><a href="https://github.com/l2015">GitHub</a></li>
-                <li><a href="#" onclick="showContact()">Contact</a></li>
-            </ul>
-        </div>
+      <button id="backButton" style="float: left" onclick="resetLayout()">
+        ⬅
+      </button>
+      <div class="main">
+        <h1 id="title">Ly's Pages</h1>
+        <ul class="nav">
+          <li><a href="#" onclick="showActivity()">Activity</a></li>
+          <li><a href="#" onclick="showTools()">Tools</a></li>
+          <li><a href="https://github.com/l2015">GitHub</a></li>
+          <li><a href="#" onclick="showContact()">Contact</a></li>
+        </ul>
+      </div>
     </div>
-    <div id="Activity" style="display:none; position: absolute; top: 20vh;left: 0; right: 0;">
-        <div class="item">
-            <a href="https://movie.douban.com/subject/26631790/" target="_blank">
-                <img src="images/item1.jpg" alt="速度与激情10">
-            </a>
-        </div>
+    <div
+      id="Activity"
+      style="display: none; position: absolute; top: 20vh; left: 0; right: 0"
+    >
+      <div class="item">
+        <a href="https://movie.douban.com/subject/26631790/" target="_blank">
+          <img src="images/item1.jpg" alt="速度与激情10" />
+        </a>
+      </div>
 
-        <div class="item">
-            <a href="https://movie.douban.com/subject/35457272/" target="_blank">
-                <img src="images/item2.jpg" alt="保你平安">
-            </a>
-        </div>
+      <div class="item">
+        <a href="https://movie.douban.com/subject/35457272/" target="_blank">
+          <img src="images/item2.jpg" alt="保你平安" />
+        </a>
+      </div>
 
-        <div class="item">
-            <a href="https://movie.douban.com/subject/35465232/" target="_blank">
-                <img src="images/item3.jpg" alt="狂飙">
-            </a>
-        </div>
-        <div class="item">
-            <a href="https://movie.douban.com/subject/25845401/" target="_blank">
-                <img src="images/item4.jpg" alt="生活大爆炸 第十季">
-            </a>
-        </div>
-        <div class="item">
-            <a href="https://book.douban.com/subject/5910656/" target="_blank">
-                <img src="images/item5.jpg" alt="我与地坛">
-            </a>
-        </div>
-        <div class="item">
-            <a href="https://book.douban.com/subject/27194805/" target="_blank">
-                <img src="images/item6.jpg" alt="家庭、私有制和国家的起源">
-            </a>
-        </div>
-        <div class="item">
-            <a href="https://book.douban.com/subject/35295592/" target="_blank">
-                <img src="images/item7.jpg" alt="小狗钱钱">
-            </a>
-        </div>
+      <div class="item">
+        <a href="https://movie.douban.com/subject/35465232/" target="_blank">
+          <img src="images/item3.jpg" alt="狂飙" />
+        </a>
+      </div>
+      <div class="item">
+        <a href="https://movie.douban.com/subject/25845401/" target="_blank">
+          <img src="images/item4.jpg" alt="生活大爆炸 第十季" />
+        </a>
+      </div>
+      <div class="item">
+        <a href="https://book.douban.com/subject/5910656/" target="_blank">
+          <img src="images/item5.jpg" alt="我与地坛" />
+        </a>
+      </div>
+      <div class="item">
+        <a href="https://book.douban.com/subject/27194805/" target="_blank">
+          <img src="images/item6.jpg" alt="家庭、私有制和国家的起源" />
+        </a>
+      </div>
+      <div class="item">
+        <a href="https://book.douban.com/subject/35295592/" target="_blank">
+          <img src="images/item7.jpg" alt="小狗钱钱" />
+        </a>
+      </div>
     </div>
     <div id="Tools">
-        <h2>Tools</h2>
-        <ul class="tools-list">
-            <li>
-                <a href="https://code.visualstudio.com/" target="_blank">VSCode</a>
-            </li>
-            <li>
-                <a href="https://www.fritz.ai/chess-benchmark/" target="_blank">Fritz Chess Benchmark</a>
-            </li>
-            <li>
-                <a href="https://www.cpuid.com/softwares/cpu-z.html" target="_blank">CPU-Z</a>
-            </li>
-            <li>
-                <a href="https://www.aida64.com/" target="_blank">AIDA64</a>
-            </li>
-            <li>
-                <a href="https://www.msi.com/page/afterburner" target="_blank">MSI Afterburner</a>
-            </li>
-            <li>
-                <a href="https://wwvs.lanzoub.com/b02e9bobc" target="_blank">Other</a>
-            </li>
-        </ul>
+      <h2>Tools</h2>
+      <ul class="tools-list">
+        <li>
+          <a href="https://code.visualstudio.com/" target="_blank">VSCode</a>
+        </li>
+        <li>
+          <a href="http://www.jens-hartmann.at/Fritzmarks/" target="_blank"
+            >Fritz Chess Benchmark</a
+          >
+        </li>
+        <li>
+          <a href="https://www.cpuid.com/softwares/cpu-z.html" target="_blank"
+            >CPU-Z</a
+          >
+        </li>
+        <li>
+          <a href="https://www.aida64.com/" target="_blank">AIDA64</a>
+        </li>
+        <li>
+          <a href="https://www.msi.com/page/afterburner" target="_blank"
+            >MSI Afterburner</a
+          >
+        </li>
+        <li>
+          <a href="https://wwvs.lanzoub.com/b02e9bobc" target="_blank">Other</a>
+        </li>
+      </ul>
     </div>
-    <div id="Contact" style="display:none; position: absolute; top: 20vh;left: 0; right: 0;">
-        <h2>Contact</h2>
-        <form id="contactForm" action="#">
-            <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" required></textarea>
-            </div>
-            <div>
-                <input type="submit" value="Submit" class="submit-button">
-            </div>
-        </form>
+    <div
+      id="Contact"
+      style="display: none; position: absolute; top: 20vh; left: 0; right: 0"
+    >
+      <h2>Contact</h2>
+      <form id="contactForm" action="#">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <div>
+          <input type="submit" value="Submit" class="submit-button" />
+        </div>
+      </form>
+      <div id="successMessage"></div>
     </div>
 
     <footer>
-        <p style="font-size: 12px; color: gray; margin: 0;">&copy; 2023 Ly's Pages. All rights reserved.</p>
+      <p style="font-size: 12px; color: gray; margin: 0">
+        &copy; 2023 Ly's Pages. All rights reserved.
+      </p>
     </footer>
 
-
-
     <script>
-        var Contact = document.getElementById('Contact');
-        var Activity = document.getElementById('Activity');
-        var Tools = document.getElementById('Tools');
-        var nav = document.querySelector('.nav');
-        var title = document.getElementById('title');
-        function showActivity() {
-            showContent('Activity');
+      var Contact = document.getElementById("Contact");
+      var Activity = document.getElementById("Activity");
+      var Tools = document.getElementById("Tools");
+      var nav = document.querySelector(".nav");
+      var title = document.getElementById("title");
+      function showActivity() {
+        showContent("Activity");
+      }
+      function showTools() {
+        showContent("Tools");
+      }
+
+      function showContact() {
+        showContent("Contact");
+      }
+      function resetLayout() {
+        Activity.style.display = "none";
+        Contact.style.display = "none";
+        Tools.style.display = "none";
+        nav.style.transform = "none";
+        title.style.opacity = "1";
+        var navItems = document.querySelectorAll(".nav li");
+        for (var i = 0; i < navItems.length; i++) {
+          navItems[i].style = null;
         }
-        function showTools() {
-            showContent('Tools');
-        }
+        var backButton = document.getElementById("backButton");
+        backButton.style.display = "none";
+      }
 
-        function showContact() {
-            showContent('Contact');
-        }
-        function resetLayout() {
-            Activity.style.display = 'none';
-            Contact.style.display = 'none';
-            nav.style.transform = 'none';
-            title.style.opacity = '1';
-            var navItems = document.querySelectorAll('.nav li');
-            for (var i = 0; i < navItems.length; i++) {
-                navItems[i].style = null;
-            }
-            var backButton = document.getElementById('backButton');
-            backButton.style.display = 'none';
-        }
+      function showContent(contentId) {
+        Contact.style.display = "none";
+        Activity.style.display = "none";
+        Tools.style.display = "none";
+        nav.style.transform = "translateY(-47vh)";
+        title.style.opacity = "0";
 
-        function showContent(contentId) {
-            Contact.style.display = 'none';
-            Activity.style.display = 'none';
-            Tools.style.display = 'none';
-            nav.style.transform = 'translateY(-47vh)';
-            title.style.opacity = '0';
+        // Show the content
+        var content = document.getElementById(contentId);
+        content.style.display = "grid";
 
-            // Show the content
-            var content = document.getElementById(contentId);
-            content.style.display = 'grid';
+        // Show back button
+        var backButton = document.getElementById("backButton");
+        backButton.style.display = "block";
+      }
 
-            // Show back button
-            var backButton = document.getElementById('backButton');
-            backButton.style.display = 'block';
-        }
+      //post data
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // 阻止表单提交
 
-        //post data
-        document.getElementById('contactForm').addEventListener('submit', function (event) {
-            event.preventDefault(); // 阻止表单提交
+          // 获取表单数据
+          var name = document.getElementById("name").value;
+          var email = document.getElementById("email").value;
+          var message = document.getElementById("message").value;
 
-            // 获取表单数据
-            var name = document.getElementById('name').value;
-            var email = document.getElementById('email').value;
-            var message = document.getElementById('message').value;
+          // 构建Bark API的URL，将表单信息作为推送内容传递
+          var url =
+            "https://api.day.app/fDPdcvuctNGvPQA9dBhxch/表单提交通知/" +
+            name +
+            " has sent a message:%0a%0a" +
+            message +
+            "%0a%0aContact email: " +
+            email;
 
-            // 构建Bark API的URL，将表单信息作为推送内容传递
-            var url = 'https://api.day.app//表单提交通知/' + name + ' has sent a message:\n\n' + message + '\n\nContact email: ' + email;
-
-            // 发送推送请求
-            fetch(url)
-                .then(function (response) {
-                    // 处理响应
-                    console.log('Notification sent');
-                    // 重置表单
-                    document.getElementById('contactForm').reset();
-                })
-                .catch(function (error) {
-                    console.error('Error sending notification:', error);
-                });
+          // 发送推送请求
+          fetch(url)
+            .then(function (response) {
+              // 处理响应
+              console.log("Notification sent");
+              // 显示提交成功消息
+              var successMessage = document.getElementById("successMessage");
+              successMessage.innerText = "提交成功";
+              successMessage.style.display = "block";
+              setTimeout(function () {
+                successMessage.style.display = "none";
+              }, 5000); // 5秒后自动隐藏
+              // 重置表单
+              document.getElementById("contactForm").reset();
+            })
+            .catch(function (error) {
+              console.error("Error sending notification:", error);
+            });
         });
-
-
-
     </script>
-</body>
-
+  </body>
 </html>
